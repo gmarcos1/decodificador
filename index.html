@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decodificador de Texto</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h2>Decodificador de Texto</h2>
+  <textarea id="inputText" placeholder="Insira o texto codificado"></textarea>
+  <button onclick="decodeText()">Decodificar</button>
+  <div id="outputText"></div>
+
+  <script>
+    function decodeText() {
+      // Obter o texto codificado a partir da área de texto
+      var encodedText = document.getElementById('inputText').value;
+
+      try {
+        // Decodificar o texto usando base64
+        var decodedText = atob(encodedText);
+        // Exibir o texto decodificado
+        document.getElementById('outputText').innerText = "Texto Decodificado:\n" + decodedText;
+      } catch (error) {
+        // Lidar com erros, se houver algum problema na decodificação
+        document.getElementById('outputText').innerText = "Erro na decodificação: " + error.message;
+      }
+    }
+  </script>
+</body>
+</html>
